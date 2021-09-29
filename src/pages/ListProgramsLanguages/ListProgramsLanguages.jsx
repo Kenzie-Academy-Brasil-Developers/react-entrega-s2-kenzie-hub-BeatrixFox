@@ -4,13 +4,12 @@ import Button from "./../../components/Button/Button";
 import Input from "./../../components/Input/Input";
 import { FiActivity, FiFile } from "react-icons/fi";
 import Card from "../../components/Card/Card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-import CardExist from "../../components/CardsExist/CardExist";
 
 const ListProgramsLanguages = ({ authorized }) => {
   const [languanges, setLanguanges] = useState([]);
@@ -37,18 +36,43 @@ const ListProgramsLanguages = ({ authorized }) => {
         },
       })
       .then((response) => {
-        setLanguanges([...languanges, data]);
+        console.log(response);
+        setLanguanges([...languanges, response.data]);
       })
       .catch((err) => toast.error(`Já existente, tente outro`));
+  };
+
+  useEffect(() => {
+    api
+      .get("/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setLanguanges(response.data.techs);
+      })
+      .catch((err) => console.log(err));
+  });
+
+  const deletTech = (tech) => {
+    const techDel = languanges.find((techItem) => techItem.title === tech);
+
+    api
+      .delete(`/users/techs/${techDel.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setLanguanges(languanges.filter((techItem) => techItem.title !== tech));
+      })
+      .catch((err) => toast.error(`Erro , tente novamente`));
   };
 
   if (!authorized) {
     return <Redirect to="/Login" />;
   }
-
-  const deletTech = (tech) => {
-    setLanguanges(languanges.filter((techItem) => techItem.title !== tech));
-  };
 
   return (
     <Container>

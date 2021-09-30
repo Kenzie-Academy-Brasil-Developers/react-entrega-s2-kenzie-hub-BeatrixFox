@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 16px;
   width: 220px;
   height: 210px;
@@ -18,10 +19,11 @@ export const Container = styled.div`
     margin: 0 16px;
   }
   h2 {
-    font-size: 200%;
+    font-size: 150%;
   }
   button {
     margin-top: 20px;
+    height: 35px;
     align-self: flex-end;
   }
   svg {

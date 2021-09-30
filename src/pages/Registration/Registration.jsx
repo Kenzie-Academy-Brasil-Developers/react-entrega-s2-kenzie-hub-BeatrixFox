@@ -72,6 +72,7 @@ const Registration = ({ authorized }) => {
     <Container>
       <BaseBack />
       <SectionForm>
+        <h1>Cadastro</h1>
         <AnimationMove>
           <form onSubmit={handleSubmit(onSubmitForm)}>
             <Input

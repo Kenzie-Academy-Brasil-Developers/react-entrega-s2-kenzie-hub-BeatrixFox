@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const BaseBack = styled.div`
-  @media (min-width: 1000px) {
+  @media (min-width: 900px) {
     flex: 1;
     background: url(${RegistrationImg}) no-repeat center var(--black);
     background-size: contain;
@@ -24,6 +24,10 @@ export const SectionForm = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 700px;
+  margin: 0 auto;
+  h1 {
+    margin-top: 40px;
+  }
 `;
 
 const appearFromLeft = keyframes`
@@ -43,10 +47,12 @@ export const AnimationMove = styled.div`
   align-items: center;
   flex-direction: column;
   animation: ${appearFromLeft} 1s;
+  width: 80%;
+  margin: 0 auto;
 
   form {
-    margin: 80px 0px;
-    width: 400px;
+    margin: 80px auto;
+    width: 95%;
     text-align: center;
     h1 {
       margin-bottom: 32px;
@@ -60,6 +66,24 @@ export const AnimationMove = styled.div`
     a {
       color: var(--details-color);
       font-weight: bold;
+    }
+  }
+  @media (min-width: 468px) {
+    width: 90%;
+    form {
+      width: 400px;
+    }
+  }
+  @media (min-width: 850px) {
+    width: 100%;
+    form {
+      width: 400px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      > div {
+        margin-top: 10px;
+        width: 400px;
+      }
     }
   }
 `;

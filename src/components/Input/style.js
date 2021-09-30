@@ -13,7 +13,7 @@ export const InputContainer = styled.div`
   border-radius: 10px;
   border: 2px solid var(--font-details-color);
   color: var(--font-details-color);
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100%;
   display: flex;
   transition: 0.4s;
@@ -39,5 +39,8 @@ export const InputContainer = styled.div`
   }
   svg {
     margin-right: 16px;
+  }
+  @media (min-width: 850px) {
+    padding: 1rem;
   }
 `;

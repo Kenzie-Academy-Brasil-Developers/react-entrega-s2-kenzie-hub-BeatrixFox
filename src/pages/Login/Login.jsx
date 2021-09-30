@@ -45,6 +45,7 @@ const Login = ({ authorized, setAuthorized }) => {
   return (
     <Container>
       <SectionForm>
+        <h1>Login</h1>
         <AnimationMove>
           <form onSubmit={handleSubmit(onSubmitForm)}>
             <Input

@@ -3,13 +3,12 @@ import RegistrationImg from "../../assets/programador.jpg";
 
 export const Container = styled.div`
   background-color: var(--back-blue);
-  height: 100vh;
   display: flex;
   align-items: stretch;
 `;
 
 export const BaseBack = styled.div`
-  @media (min-width: 1000px) {
+  @media (min-width: 950px) {
     flex: 1;
     background: url(${RegistrationImg}) no-repeat center var(--black);
     background-size: contain;
@@ -23,6 +22,10 @@ export const SectionForm = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
+  h1 {
+    margin-top: 40px;
+  }
 `;
 
 const appearFromRight = keyframes`
@@ -42,21 +45,25 @@ export const AnimationMove = styled.div`
   align-items: center;
   flex-direction: column;
   animation: ${appearFromRight} 1s;
+  width: 80%;
+  margin: 0 auto;
 
   form {
-    margin: 40px 0px;
-    width: 800px;
+    margin: 40px auto;
     text-align: center;
-    justify-content: space-between;
+    flex-direction: column;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
 
     h1 {
       margin-bottom: 32px;
     }
     > div {
-      margin-top: 10px;
-      width: 400px;
+      margin: 10px auto 0;
+      width: 100%;
     }
     p {
       margin: 8px auto;
@@ -64,6 +71,19 @@ export const AnimationMove = styled.div`
     a {
       color: var(--details-color);
       font-weight: bold;
+    }
+  }
+  @media (min-width: 850px) {
+    width: 100%;
+    form {
+      width: 800px;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      > div {
+        margin-top: 10px;
+        width: 400px;
+      }
     }
   }
 `;
